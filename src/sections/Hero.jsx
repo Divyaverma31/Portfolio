@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { ArrowDown, Download, FolderGit2, Mail, Phone, Send } from 'lucide-react';
+import { ArrowDown, Download, FolderGit2, Send } from 'lucide-react';
 import {
   FaAws,
   FaDocker,
@@ -92,8 +92,6 @@ export default function Hero() {
             {[
               { href: profile.github, label: 'GitHub', Icon: FaGithub },
               { href: profile.linkedin, label: 'LinkedIn', Icon: FaLinkedin },
-              { href: `mailto:${profile.email}`, label: 'Email', Icon: Mail },
-              { href: profile.phoneHref, label: 'Phone', Icon: Phone },
             ].map(({ href, label, Icon }) => (
               <motion.a
                 key={label}
