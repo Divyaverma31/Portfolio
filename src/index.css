@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-night-950 text-slate-300;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/40 text-white;
+  }
+
+  /* Slim custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300 dark:bg-night-700;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-indigo-400 dark:bg-indigo-600;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-slate-200/80 bg-white/70 shadow-card backdrop-blur-xl
+      transition-all duration-300
+      dark:border-white/10 dark:bg-white/[0.04];
+  }
+
+  .glass-card-hover {
+    @apply hover:-translate-y-1 hover:border-indigo-400/50 hover:shadow-glow
+      dark:hover:border-indigo-400/40;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500
+      bg-200% px-6 py-3 text-sm font-semibold text-white shadow-glow transition-all duration-300
+      hover:scale-[1.03] hover:animate-gradient-x focus-visible:outline focus-visible:outline-2
+      focus-visible:outline-offset-2 focus-visible:outline-indigo-400 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-xl border border-slate-300 px-6 py-3 text-sm font-semibold
+      text-slate-700 transition-all duration-300 hover:scale-[1.03] hover:border-indigo-400 hover:text-indigo-500
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400
+      active:scale-95 dark:border-white/15 dark:text-slate-200 dark:hover:border-indigo-400
+      dark:hover:text-indigo-300;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs
+      font-medium text-indigo-700 transition-colors dark:border-indigo-400/20 dark:bg-indigo-500/10
+      dark:text-indigo-300;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
