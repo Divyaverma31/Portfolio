@@ -40,19 +40,14 @@ export default function Footer() {
             <Mail size={16} />
           </a>
           <a
-            href="https://wa.me/918381893831"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Chat on WhatsApp"
+            href={profile.phoneHref}
+            aria-label="Call phone"
             className="rounded-full border border-slate-200 p-2.5 text-slate-500 transition-all hover:-translate-y-1 hover:border-indigo-400 hover:text-indigo-500 dark:border-white/10 dark:text-slate-400 dark:hover:text-cyan-300"
           >
             <Phone size={16} />
           </a>
         </div>
 
-        <p className="text-xs text-slate-500 dark:text-slate-500">
-          Built using React.js, Tailwind CSS and Framer Motion.
-        </p>
         <p className="text-xs text-slate-400 dark:text-slate-600">
           © 2026 Divya Verma. All Rights Reserved.
         </p>
