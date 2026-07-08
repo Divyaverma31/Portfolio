@@ -2,6 +2,20 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Mail, Phone } from 'lucide-react';
 import { profile } from '../data/portfolio.js';
 
+// Phones get the native mail app via mailto; desktops (which often have no
+// mail app configured) get Gmail's web compose instead.
+function composeEmail(e) {
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (!isMobile) {
+    e.preventDefault();
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  }
+}
+
 export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-slate-200/60 py-10 dark:border-white/5">
@@ -32,6 +46,7 @@ export default function Footer() {
           </a>
           <a
             href={`mailto:${profile.email}`}
+            onClick={composeEmail}
             aria-label="Compose email"
             className="rounded-full border border-slate-200 p-2.5 text-slate-500 transition-all hover:-translate-y-1 hover:border-indigo-400 hover:text-indigo-500 dark:border-white/10 dark:text-slate-400 dark:hover:text-cyan-300"
           >
