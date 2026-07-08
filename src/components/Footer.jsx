@@ -31,10 +31,8 @@ export default function Footer() {
             <FaLinkedin size={16} />
           </a>
           <a
-            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Send email via Gmail"
+            href={`mailto:${profile.email}`}
+            aria-label="Compose email"
             className="rounded-full border border-slate-200 p-2.5 text-slate-500 transition-all hover:-translate-y-1 hover:border-indigo-400 hover:text-indigo-500 dark:border-white/10 dark:text-slate-400 dark:hover:text-cyan-300"
           >
             <Mail size={16} />
